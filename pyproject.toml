@@ -1,0 +1,61 @@
+[tool.poetry]
+name = "invest-journal"
+version = "0.1.0"
+description = ""
+authors = ["Chris Peterson <cdpeters1@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+numpy = {version = "^1.26.0", python=">=3.11,<3.13"}
+pandas = "^2.1.1"
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.25.2"
+jupyterlab = "^4.0.6"
+black = "^23.9.1"
+blacken-docs = "^1.16.0"
+isort = "^5.12.0"
+interrogate = "^1.5.0"
+flake8 = "^6.1.0"
+flake8-docstrings = "^1.7.0"
+mypy = "^1.5.1"
+nbqa = "^1.7.0"
+pre-commit = "^3.4.0"
+click = "^8.1.7"
+docrepr = "^0.2.0"
+catppuccin-jupyterlab = "^0.2.0"
+pandas-stubs = "^2.1.1.230928"
+
+[tool.black]
+target-version = ["py311"]
+
+[tool.isort]
+profile = "black"
+
+[tool.interrogate]
+ignore-init-module = true
+fail-under = 100
+verbose = 1
+exclude = ["*.ipynb_checkpoints*"]
+
+[tool.mypy]
+python_version = "3.11"
+
+[[tool.mypy.overrides]]
+ignore_missing_imports = true
+
+[tool.nbqa.addopts]
+flake8 = [
+    "--extend-ignore=D100,E501"
+]
+interrogate = [
+    "--ignore-module"
+]
+
+[tool.nbqa.md]
+blacken-docs = true
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
