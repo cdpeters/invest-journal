@@ -191,4 +191,16 @@ frontend/.vercel
 frontend/*.tsbuildinfo
 frontend/next-env.d.ts
 
+#db
+frontend/db/CHANGELOG.md
+frontend/db/LICENSE.md
+frontend/db/pb_data/data.db
+frontend/db/pb_data/data.db-shm
+frontend/db/pb_data/data.db-wal
+frontend/db/pb_data/logs.db
+frontend/db/pb_data/logs.db-shm
+frontend/db/pb_data/logs.db-wal
+frontend/db/pb_data/types.d.ts
+
 .DS_Store
+
