@@ -1,6 +1,7 @@
 examples/
 secrets.toml
 .vscode/
+backend/data/
 
 # Created by https://www.toptal.com/developers/gitignore/api/python
 # Byte-compiled / optimized / DLL files
@@ -203,4 +204,3 @@ frontend/db/pb_data/logs.db-wal
 frontend/db/pb_data/types.d.ts
 
 .DS_Store
-
