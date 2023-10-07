@@ -9,6 +9,8 @@ readme = "README.md"
 python = "^3.11"
 numpy = {version = "^1.26.0", python=">=3.11,<3.13"}
 pandas = "^2.1.1"
+httpx = "^0.25.0"
+rich = "^13.6.0"
 
 [tool.poetry.group.dev.dependencies]
 ipykernel = "^6.25.2"
@@ -41,8 +43,6 @@ exclude = ["*.ipynb_checkpoints*"]
 
 [tool.mypy]
 python_version = "3.11"
-
-[[tool.mypy.overrides]]
 ignore_missing_imports = true
 
 [tool.nbqa.addopts]
