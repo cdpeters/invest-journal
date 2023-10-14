@@ -11,6 +11,10 @@ numpy = {version = "^1.26.0", python=">=3.11,<3.13"}
 pandas = "^2.1.1"
 httpx = "^0.25.0"
 rich = "^13.6.0"
+plotly = "^5.17.0"
+matplotlib = "^3.8.0"
+pydantic = "^2.4.2"
+bump-pydantic = "^0.7.0"
 
 [tool.poetry.group.dev.dependencies]
 ipykernel = "^6.25.2"
@@ -26,8 +30,8 @@ nbqa = "^1.7.0"
 pre-commit = "^3.4.0"
 click = "^8.1.7"
 docrepr = "^0.2.0"
-catppuccin-jupyterlab = "^0.2.0"
 pandas-stubs = "^2.1.1.230928"
+catppuccin-jupyterlab = "^0.2.0"
 
 [tool.black]
 target-version = ["py311"]
