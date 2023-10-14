@@ -8,6 +8,7 @@ import Toolbar from '@mui/material/Toolbar';
 import AppBar from '@mui/material/AppBar';
 import Grid from '@mui/material/Unstable_Grid2';
 
+import NavPanel from './components/Layout/NavPanel'
 
 export const metadata = {
   title: 'Create Next App',
@@ -20,37 +21,33 @@ export default function RootLayout({children}) {
     <html>
 
       <body>
-
         <Providers>
-          <Box sx={{}}>
-            <Grid container spacing={0}>
-              
-              <Grid xs sx={{height:'100vh', border: '1px solid #333'}}>
-                SideBar
-              </Grid>
-
-              <Grid xs={10.5} sx={{height: '100vh'}} >
-                <Box sx={{height: '100%',width:'100%'}}>
-
-                  <Box sx={{height:'6%',zIndex:'9999'}}>
-                    <Toolbar disableGutters variant='dense' sx={{borderBottom:'1px solid #333',height:'100%'}}>
-                      TopBar
-                    </Toolbar>
-                  </Box>
-
-                  <Box sx={{height: '94%',overflowY: 'scroll'}}>
-                    <Box sx={{height:'1500px'}}>
-                      Main
-                    </Box>
-                  </Box>
-
-                </Box>
-              </Grid>  
-              
+          <Grid container spacing={0}>
+            
+            <Grid xs sx={{height:'100vh', borderRight: '1px solid #333'}}>
+              <NavPanel />
             </Grid>
-          </Box> 
-        </Providers>
 
+            <Grid xs={10.5} sx={{height: '100vh'}} >
+              <Box sx={{height: '100%',width:'100%'}}>
+
+                <Box sx={{height:'6%',zIndex:'9999'}}>
+                  <Toolbar disableGutters variant='dense' sx={{borderBottom:'1px solid #333',height:'100%'}}>
+                    TopBar
+                  </Toolbar>
+                </Box>
+
+                <Box sx={{height: '94%',overflowY: 'scroll'}}>
+                  <Box sx={{height:'1500px'}}>
+                    {children}
+                  </Box>
+                </Box>
+
+              </Box>
+            </Grid>  
+            
+          </Grid>
+        </Providers>
       </body>
 
     </html>
