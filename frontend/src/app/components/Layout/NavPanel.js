@@ -1,5 +1,8 @@
 'use client'
 
+import { useRouter, usePathname, useSearchParams } from 'next/navigation'
+
+
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
@@ -18,6 +21,9 @@ import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 
 
 export default function SideBar() {
+
+  const router = useRouter()
+
   return (
       
       <Box sx={{height:'100%'}}>
@@ -40,7 +46,7 @@ export default function SideBar() {
               {label:'Journal', icon:<AutoStoriesIcon/>}
             ].map((obj, index) => (
               <ListItem key={index} disablePadding>
-                <ListItemButton>
+                <ListItemButton onClick={() => router.push(`/${obj.label}`)}>
                   <ListItemIcon>
                     <SvgIcon component={() => obj.icon} />
                   </ListItemIcon>
