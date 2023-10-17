@@ -32,6 +32,7 @@ click = "^8.1.7"
 docrepr = "^0.2.0"
 pandas-stubs = "^2.1.1.230928"
 catppuccin-jupyterlab = "^0.2.0"
+nbstripout = "^0.6.1"
 
 [tool.black]
 target-version = ["py311"]

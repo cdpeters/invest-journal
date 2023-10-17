@@ -111,6 +111,11 @@ repos:
     types: [jupyter]
     additional_dependencies: [flake8==6.1.0, flake8-docstrings==1.7.0]
 # File Formatting --------------------------------------------------------------
+# Remove jupyter notebook output.
+- repo: https://github.com/kynan/nbstripout
+  rev: 0.6.1
+  hooks:
+  - id: nbstripout
 - repo: https://github.com/pre-commit/pre-commit-hooks
   rev: v4.4.0
   hooks:
