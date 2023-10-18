@@ -1,5 +1,6 @@
 """A CLI for running development tools on jupyter notebooks and python files."""
 
+import glob
 import subprocess
 from pathlib import Path
 
@@ -67,12 +68,21 @@ def tools(
                   default. Not run on markdown files by default, see the -md|--markdown
                   cli option.
            isort: import formatter
+      nbstripout: remove cell output in jupyter notebooks
      interrogate: docstring coverage
           flake8: linter
             mypy: type checker
     """
     # Constants and Variables ----------------------------------------------------------
-    run_tools = ["black", "blacken-docs", "isort", "interrogate", "flake8", "mypy"]
+    run_tools = [
+        "black",
+        "blacken-docs",
+        "isort",
+        "nbstripout",
+        "interrogate",
+        "flake8",
+        "mypy",
+    ]
     header_banner_len = 80
     tool_banner_len = 74
     type_messages = {
@@ -201,7 +211,7 @@ def tools(
             )
 
     # Input Processing -----------------------------------------------------------------
-    # Set up `type_prepend` based on the `markdown` and `file_type` inputs
+    # Set up `type_prepend` based on the `markdown` and `file_type` inputs.
     if markdown:
         run_tools = ["blacken-docs"]
         type_prepend["md"] = type_messages["md"]
@@ -254,6 +264,10 @@ def tools(
                             tools_path.joinpath("pyproject.toml"),
                         ]
                     )
+                elif tool == "nbstripout":
+                    notebooks = glob.glob("**/*.ipynb", recursive=True)
+                    notebooks = [Path(notebook) for notebook in notebooks]
+                    subprocess.run(["nbstripout", *notebooks])
                 else:
                     subprocess.run(["nbqa", tool, cwd])
             elif ft == "py":
