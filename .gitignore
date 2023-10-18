@@ -2,6 +2,7 @@ examples/
 secrets.toml
 .vscode/
 backend/data/
+.jupyter_ystore.db
 
 # Created by https://www.toptal.com/developers/gitignore/api/python
 # Byte-compiled / optimized / DLL files
